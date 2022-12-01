@@ -36,3 +36,7 @@ app.post('/app/roll', (req, res) => {
 app.get('/app/roll/:sides/', (req, res) => {
     res.send(roll(parseInt(req.params.sides), 2, 1));
 })
+
+app.get('/app/roll/:sides/:dice/', (req, res) => {
+    res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), 1));
+})
