@@ -14,10 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.listen(port);
 
-app.get("*", (req,res) => {
-    res.status(404).send("404 NOT FOUND");
-});
-
 app.get("/app/", (req,res) => {
     res.send("200 OK");
 });
@@ -48,3 +44,7 @@ app.get('/app/roll/:sides/:dice/', (req, res) => {
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
     res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 })
+
+app.get("*", (req,res) => {
+    res.status(404).send("404 NOT FOUND");
+});
