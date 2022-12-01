@@ -11,9 +11,24 @@ app.use(express.urlencoded({ extended: true }));
 app.listen(port);
 
 app.get("*", (req,res) => {
-    return res.send("404 NOT FOUND");
+    res.send("404 NOT FOUND");
 });
 
 app.get("/app/", (req,res) => {
-    return res.send("200 OK");
+    res.send("200 OK");
 });
+
+app.get("/app/roll/", (req,res) => {
+    res.send(roll(6, 2, 1));
+});
+
+app.get("/app/roll/", (req,res) => {
+    res.send(roll(6, 2, 1));
+});
+
+app.post('/app/roll', (req, res) => {
+    var sides = parseInt(req.body.sides) || 6;
+    var dice = parseInt(req.body.dice) || 2;
+    var rolls = parseInt(req.body.rolls) || 1;
+    res.status.send(roll(sides, dice, rolls));
+})
