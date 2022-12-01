@@ -32,3 +32,7 @@ app.post('/app/roll', (req, res) => {
     var rolls = parseInt(req.body.rolls) || 1;
     res.status.send(roll(sides, dice, rolls));
 })
+
+app.get('/app/roll/:sides/', (req, res) => {
+    res.send(roll(parseInt(req.params.sides), 2, 1));
+})
