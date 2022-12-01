@@ -10,10 +10,12 @@ const port = args.port||5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
 app.listen(port);
 
 app.get("*", (req,res) => {
-    res.send("404 NOT FOUND");
+    res.status(404).send("404 NOT FOUND");
 });
 
 app.get("/app/", (req,res) => {
@@ -32,7 +34,7 @@ app.post('/app/roll', (req, res) => {
     var sides = parseInt(req.body.sides) || 6;
     var dice = parseInt(req.body.dice) || 2;
     var rolls = parseInt(req.body.rolls) || 1;
-    res.status.send(roll(sides, dice, rolls));
+    res.send(roll(sides, dice, rolls));
 })
 
 app.get('/app/roll/:sides/', (req, res) => {
