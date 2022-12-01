@@ -2,7 +2,7 @@
   "name": "a04-jonnyhuang18",
   "version": "1.0.0",
   "description": "stand up an API",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "node server.js --port=5555",
